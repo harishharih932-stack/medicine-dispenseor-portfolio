@@ -8,278 +8,305 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <div class="brand">
         <div class="brand-dot"></div>
-        <span>MedDispense <span class="brand-iot">IoT</span></span>
+        <span>MedDispense <span class="brand-badge">IoT</span></span>
       </div>
       <div class="nav-links">
         <a href="#hardware">Hardware</a>
         <a href="#caretaker">Caretaker App</a>
-        <a href="#patient">CareSaathi</a>
+        <a href="#caresaathi">CareSaathi</a>
         <a href="#medscene">MedScene AI</a>
-        <a href="#alerts">Alerts</a>
+        <a href="#alerts">Emergency Pipeline</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <canvas id="heroCanvas"></canvas>
     <div class="hero-content">
-      <div class="problem-badge">
-        <span class="badge-dot"></span>
+      <div class="problem-pill">
+        <span class="pill-dot"></span>
         Hackathon Problem Statement
       </div>
+      
       <h1 class="hero-title">
-        <span class="highlight-text">IoT Enabled</span> Patient<br>Monitoring &amp; Emergency<br>Alert System
+        <span class="text-gradient-primary">IoT Enabled</span> Patient<br>
+        Monitoring &amp; Emergency<br>
+        <span class="text-gradient-secondary">Alert System</span>
       </h1>
+
       <p class="hero-sub">
-        A ₹2,000 hardware device that gives elderly patients 24/7 automated medicine reminders,<br>
-        instant emergency alerts to family — and peace of mind for everyone.
+        A low-cost, high-reliability automated pill dispenser combined with real-time caretaker alerts, AI medical report reading, and hands-free emergency detection.
       </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">₹2,000</span>
-          <span class="stat-lbl">Total hardware cost</span>
+
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-val">₹2,000</div>
+          <div class="stat-lbl">Hardware Cost</div>
         </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <span class="stat-num">~20ms</span>
-          <span class="stat-lbl">Sensor response time</span>
+        <div class="stat-sep"></div>
+        <div class="stat-card">
+          <div class="stat-val">~20ms</div>
+          <div class="stat-lbl">Sensor Reaction</div>
         </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <span class="stat-num">10</span>
-          <span class="stat-lbl">Medicine compartments</span>
+        <div class="stat-sep"></div>
+        <div class="stat-card">
+          <div class="stat-val">10</div>
+          <div class="stat-lbl">Medicine Channels</div>
         </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <span class="stat-num">24/7</span>
-          <span class="stat-lbl">Automated monitoring</span>
+        <div class="stat-sep"></div>
+        <div class="stat-card">
+          <div class="stat-val">24 / 7</div>
+          <div class="stat-lbl">Active Shield</div>
         </div>
       </div>
-      <a href="#hardware" class="scroll-cta">
-        <span>See how it works</span>
-        <div class="cta-arrow">↓</div>
+
+      <a href="#hardware" class="hero-cta">
+        <span>Explore Architecture</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
       </a>
     </div>
   </section>
 
-  <!-- SECTION 1: THE HARDWARE -->
+  <!-- SECTION 1: HARDWARE DISPENSER -->
   <section class="section" id="hardware">
     <div class="container">
-      <div class="section-label">01 — The Hardware</div>
-      <h2 class="section-title">The Pill Dispenser</h2>
-      <p class="section-sub">A round base with 10 compartments. An orange servo arm rotates to the right compartment and pushes one pill down the chute. An IR sensor confirms the pill fell. That's it.</p>
+      <div class="section-tag">01 — Core Hardware Prototype</div>
+      <h2 class="section-heading">Smart 10-Channel Round Dispenser</h2>
+      <p class="section-desc">Designed for ultra-low cost, high mechanical accuracy, and zero missed doses. The hardware operates on dual power sources to prevent micro-controller reset during servo load.</p>
 
-      <div class="hardware-layout">
-        <div class="hw-photo-main reveal">
-          <img src="img/hardware_dispenser.jpg" alt="MedDispense Hardware Prototype" class="hw-img">
-          <div class="photo-caption">The actual working prototype</div>
+      <div class="hw-showcase">
+        <div class="hw-main-card">
+          <div class="hw-img-wrap">
+            <img src="img/hardware_dispenser.jpg" alt="MedDispense Physical Hardware Prototype" class="hw-hero-img">
+            <div class="hw-overlay-badge">
+              <span class="live-dot"></span> Live Physical Model
+            </div>
+          </div>
+          <div class="hw-caption">
+            <strong>Physical Prototype</strong> — 10-slot rotating base disc, high-torque micro servo arm, IR fall sensor, and custom Arduino controller unit.
+          </div>
         </div>
-        <div class="hw-details">
-          <div class="hw-part reveal" data-delay="0.1">
-            <div class="part-num">01</div>
-            <div class="part-info">
-              <h4>Red Base Disc</h4>
-              <p>10 compartments — one for each medicine. Fixed, never moves.</p>
+
+        <div class="hw-grid">
+          <div class="hw-item">
+            <div class="hw-icon-box bg-red">01</div>
+            <div class="hw-text">
+              <h4>10-Compartment Base Disc</h4>
+              <p>Fixed outer ring holding individual pill doses securely separated. Non-jamming slot design.</p>
             </div>
           </div>
-          <div class="hw-part reveal" data-delay="0.2">
-            <div class="part-num">02</div>
-            <div class="part-info">
-              <h4>Orange Servo Arm</h4>
-              <p>Rotates to the right compartment at the scheduled time and pushes the pill down the chute.</p>
+
+          <div class="hw-item">
+            <div class="hw-icon-box bg-orange">02</div>
+            <div class="hw-text">
+              <h4>Precision Servo Arm</h4>
+              <p>Rotates to the scheduled channel and nudges the pill cleanly into the discharge chute.</p>
             </div>
           </div>
-          <div class="hw-part reveal" data-delay="0.3">
-            <div class="part-num">03</div>
-            <div class="part-info">
-              <h4>IR Sensor</h4>
-              <p>Detects when the pill actually falls (~20ms response). Stops the servo immediately.</p>
+
+          <div class="hw-item">
+            <div class="hw-icon-box bg-blue">03</div>
+            <div class="hw-text">
+              <h4>IR Drop Sensor Beam</h4>
+              <p>Positioned at the chute outlet. Detects pill passage in ~20ms to confirm successful delivery.</p>
             </div>
           </div>
-          <div class="hw-part reveal" data-delay="0.4">
-            <div class="part-num">04</div>
-            <div class="part-info">
-              <h4>Arduino + 18650 Batteries</h4>
-              <p>Brain of the system. Dedicated battery power for servos — prevents resets and jitter.</p>
+
+          <div class="hw-item">
+            <div class="hw-icon-box bg-green">04</div>
+            <div class="hw-text">
+              <h4>Dual Battery Power Shield</h4>
+              <p>Independent 18650 power for servos prevents electrical noise and voltage dips on the logic board.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="hw-photo2-row reveal">
-        <div class="hw-photo2-wrap">
-          <img src="img/hardware_dispenser2.jpg" alt="Dispenser close-up" class="hw-img2">
-          <div class="photo-caption">Close-up: servo arm + compartments</div>
+      <!-- ESP32 REMOTE SUB-SECTION -->
+      <div class="esp-card">
+        <div class="esp-header">
+          <div>
+            <span class="mini-tag">Wireless Safety Accessory</span>
+            <h3>ESP32 Handheld Panic Remote</h3>
+            <p>Completely mobile 4-button tactile remote for the elderly patient.</p>
+          </div>
         </div>
-        <div class="hw-photo2-wrap">
-          <img src="img/esp32_remote.jpg" alt="ESP32 Panic Remote" class="hw-img2">
-          <div class="photo-caption">ESP32 Panic Remote — 4 buttons</div>
-        </div>
-        <div class="esp-info reveal">
-          <h4>The Panic Remote</h4>
-          <p>A wireless ESP32 device with 4 tactile buttons. Patient keeps it with them. Press a button — an alert immediately fires on the caretaker's phone via Telegram.</p>
-          <div class="btn-legend">
-            <span class="btn-tag red">🚨 SOS Emergency</span>
-            <span class="btn-tag green">✅ I'm Okay</span>
-            <span class="btn-tag yellow">🙋 Help Needed</span>
-            <span class="btn-tag blue">💊 Dispense Error</span>
+
+        <div class="remote-buttons-grid">
+          <div class="remote-btn-card btn-sos">
+            <div class="btn-head">
+              <span class="btn-icon">🚨</span>
+              <h4>SOS Emergency</h4>
+            </div>
+            <p>Triggers loudest alert to caretaker phone instantly with GPS/Room tag.</p>
+          </div>
+
+          <div class="remote-btn-card btn-okay">
+            <div class="btn-head">
+              <span class="btn-icon">✅</span>
+              <h4>I'm Okay Check-in</h4>
+            </div>
+            <p>Cancels active alerts or notifies caretaker that dose was taken safely.</p>
+          </div>
+
+          <div class="remote-btn-card btn-help">
+            <div class="btn-head">
+              <span class="btn-icon">🙋</span>
+              <h4>Assistance Needed</h4>
+            </div>
+            <p>Non-urgent notification for assistance with water, food, or mobility.</p>
+          </div>
+
+          <div class="remote-btn-card btn-error">
+            <div class="btn-head">
+              <span class="btn-icon">💊</span>
+              <h4>Dispense Error</h4>
+            </div>
+            <p>Signals if a pill didn't fall or got stuck for immediate caretaker check.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 2: CARETAKER APP -->
+  <!-- SECTION 2: CARETAKER DESKTOP APP -->
   <section class="section section-alt" id="caretaker">
     <div class="container">
-      <div class="section-label">02 — Caretaker Interface</div>
-      <h2 class="section-title">CareDispense Control App</h2>
-      <p class="section-sub">The caretaker opens this app on their PC. They set which medicine goes in which channel, when it should dispense, and how many pills are left. The dispenser does the rest automatically.</p>
+      <div class="section-tag">02 — Caretaker Interface</div>
+      <h2 class="section-heading">CareDispense Desktop Dashboard</h2>
+      <p class="section-desc">A centralized control panel where doctors or caretakers configure dose schedules, monitor live inventory, and manage hardware settings with zero complexity.</p>
 
-      <div class="app-showcase reveal">
-        <div class="app-screen-wrap">
-          <div class="screen-chrome">
-            <div class="screen-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="screen-title-bar">CareDispense — Pill Dispenser Control</div>
+      <div class="app-card">
+        <div class="mock-window">
+          <div class="mock-bar">
+            <div class="mock-dots"><span></span><span></span><span></span></div>
+            <div class="mock-title">CareDispense — Hardware & Schedule Control</div>
+            <div class="mock-status"><span class="status-dot"></span> COM4 Connected</div>
           </div>
-          <img src="img/caredispense_app.jpg" alt="CareDispense Desktop App" class="app-screenshot">
+          
+          <div class="mock-body">
+            <div class="channel-row">
+              <div class="ch-badge">Ch 1</div>
+              <div class="ch-details">
+                <strong>Paracetamol 500mg</strong>
+                <span class="stock-pill">Stock: 9 pills remaining</span>
+              </div>
+              <div class="ch-schedule">
+                <span class="slot-tag active">Morning 08:00</span>
+                <span class="slot-tag">Afternoon 14:00</span>
+                <span class="slot-tag active">Evening 20:00</span>
+              </div>
+              <button class="mock-btn-action">Dispense Now</button>
+            </div>
+
+            <div class="channel-row">
+              <div class="ch-badge">Ch 2</div>
+              <div class="ch-details">
+                <strong>Amoxicillin 250mg</strong>
+                <span class="stock-pill">Stock: 6 pills remaining</span>
+              </div>
+              <div class="ch-schedule">
+                <span class="slot-tag active">Morning 08:00</span>
+                <span class="slot-tag active">Afternoon 13:00</span>
+                <span class="slot-tag">Evening --:--</span>
+              </div>
+              <button class="mock-btn-action">Dispense Now</button>
+            </div>
+
+            <div class="channel-row">
+              <div class="ch-badge">Ch 3</div>
+              <div class="ch-details">
+                <strong>Atorvastatin 10mg</strong>
+                <span class="stock-pill warning">Stock: 2 pills remaining (Low)</span>
+              </div>
+              <div class="ch-schedule">
+                <span class="slot-tag">Morning --:--</span>
+                <span class="slot-tag">Afternoon --:--</span>
+                <span class="slot-tag active">Evening 21:00</span>
+              </div>
+              <button class="mock-btn-action">Dispense Now</button>
+            </div>
+          </div>
         </div>
-        <div class="app-features">
-          <div class="feat reveal" data-delay="0.1">
-            <div class="feat-icon">💊</div>
-            <div class="feat-text">
-              <h4>Per-Channel Schedule</h4>
-              <p>Each channel has its own medicine name, stock count, and time slots — Morning, Afternoon, and Evening. Caretaker sets it once, runs every day.</p>
-            </div>
+
+        <div class="app-pillars">
+          <div class="pillar">
+            <div class="pillar-num">01</div>
+            <h4>Per-Channel Timing</h4>
+            <p>Assign exact morning, afternoon, and evening dose hours per medicine compartment.</p>
           </div>
-          <div class="feat reveal" data-delay="0.2">
-            <div class="feat-icon">⚡</div>
-            <div class="feat-text">
-              <h4>Dispense Now Button</h4>
-              <p>Caretaker can trigger any channel manually at any time — for testing or emergency manual dose.</p>
-            </div>
+          <div class="pillar">
+            <div class="pillar-num">02</div>
+            <h4>Inventory Watch</h4>
+            <p>Automatic decrement on verified IR fall. Visual low-stock warnings for refills.</p>
           </div>
-          <div class="feat reveal" data-delay="0.3">
-            <div class="feat-icon">📦</div>
-            <div class="feat-text">
-              <h4>Stock Tracking</h4>
-              <p>Shows how many pills remain in each compartment. One click to add refills.</p>
-            </div>
+          <div class="pillar">
+            <div class="pillar-num">03</div>
+            <h4>One-Click Test</h4>
+            <p>Instant manual override button to trigger any channel on demand for testing.</p>
           </div>
-          <div class="feat reveal" data-delay="0.4">
-            <div class="feat-icon">📡</div>
-            <div class="feat-text">
-              <h4>Telegram Integration</h4>
-              <p>"Test Telegram" button sends a live test alert to the caretaker's phone — confirms the alert pipeline is working.</p>
-            </div>
+          <div class="pillar">
+            <div class="pillar-num">04</div>
+            <h4>Telegram Gateway</h4>
+            <p>Direct pipe to caretaker's mobile phone for immediate missed-dose escalation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: CARESAATHI -->
-  <section class="section" id="patient">
+  <!-- SECTION 3: CARESAATHI PATIENT SUITE -->
+  <section class="section" id="caresaathi">
     <div class="container">
-      <div class="section-label">03 — Patient App</div>
-      <h2 class="section-title">CareSaathi</h2>
-      <p class="section-sub">A separate app designed for the patient — warm, simple, large buttons. Music, meditation, companionship, and emergency SOS. All in one place.</p>
+      <div class="section-tag">03 — Patient Experience</div>
+      <h2 class="section-heading">CareSaathi Mobile &amp; Web Companion</h2>
+      <p class="section-desc">Designed specifically for senior citizens with large touch targets, warm conversational AI, devotional music, and zero-touch emergency triggers.</p>
 
-      <div class="tabs-showcase">
-        <div class="tab-grid">
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon-wrap">🌐</div>
+          <h3>Multi-Lingual Audio</h3>
+          <p>Supports Hindi, Kannada, Tamil, Telugu, Punjabi, and English. Curated music and audio suggestions for emotional wellness.</p>
+        </div>
 
-          <div class="tab-card reveal" data-delay="0">
-            <div class="tab-screen">
-              <img src="img/caresaathi_home.jpg" alt="CareSaathi Home" class="tab-img">
-            </div>
-            <div class="tab-label">
-              <span class="tab-icon">🏠</span>
-              <div>
-                <h4>Home</h4>
-                <p>Pick language, auto-curated music playlist (Hindi, Kannada, Tamil, Telugu + more)</p>
-              </div>
-            </div>
-          </div>
+        <div class="feat-card">
+          <div class="feat-icon-wrap">💬</div>
+          <h3>Meera AI Companion</h3>
+          <p>Warm, friendly voice/text companion powered by Groq LLM. Allows the patient to type notes sent straight to caretaker's Telegram.</p>
+        </div>
 
-          <div class="tab-card reveal" data-delay="0.1">
-            <div class="tab-screen">
-              <img src="img/caresaathi_companion.jpg" alt="CareSaathi Companion" class="tab-img">
-            </div>
-            <div class="tab-label">
-              <span class="tab-icon">💬</span>
-              <div>
-                <h4>Companion — Meera</h4>
-                <p>A warm AI friend that chats in the patient's language. Has a box to message caretaker directly on Telegram.</p>
-              </div>
-            </div>
-          </div>
+        <div class="feat-card">
+          <div class="feat-icon-wrap">🧘</div>
+          <h3>Scheduled Meditation</h3>
+          <p>Caretaker can set daily morning prayers or meditation chants (e.g., Ram Chant at 10:30 AM) that auto-play to calm the patient.</p>
+        </div>
 
-          <div class="tab-card reveal" data-delay="0.2">
-            <div class="tab-screen">
-              <img src="img/caresaathi_meditate.jpg" alt="CareSaathi Meditate" class="tab-img">
-            </div>
-            <div class="tab-label">
-              <span class="tab-icon">🧘</span>
-              <div>
-                <h4>Meditate</h4>
-                <p>Caretaker picks a track + time. Auto-plays daily. Good for morning prayers, relaxation.</p>
-              </div>
-            </div>
-          </div>
+        <div class="feat-card">
+          <div class="feat-icon-wrap">🚌</div>
+          <h3>Traveler Mode</h3>
+          <p>Queue 10–20 songs for long car journeys with an auto-stop sleep timer so battery isn't wasted.</p>
+        </div>
 
-          <div class="tab-card reveal" data-delay="0.3">
-            <div class="tab-screen">
-              <img src="img/caresaathi_traveler.jpg" alt="CareSaathi Traveler" class="tab-img">
-            </div>
-            <div class="tab-label">
-              <span class="tab-icon">🚌</span>
-              <div>
-                <h4>Traveler Mode</h4>
-                <p>Queue 10–20 songs for a long journey, auto-stop timer so music doesn't play all night.</p>
-              </div>
-            </div>
-          </div>
+        <div class="feat-card feat-highlight">
+          <div class="feat-icon-wrap">📷</div>
+          <h3>MediaPipe Gesture SOS</h3>
+          <p>Webcam runs MediaPipe hand tracking. Raised hand held for ~2 seconds initiates SOS with a 5s cancellation timer before alerting caretaker.</p>
+        </div>
 
-          <div class="tab-card reveal tab-card-wide" data-delay="0.4">
-            <div class="tab-screen">
-              <img src="img/caresaathi_sos.png" alt="CareSaathi SOS" class="tab-img">
-            </div>
-            <div class="tab-label">
-              <span class="tab-icon">🆘</span>
-              <div>
-                <h4>SOS — Gesture Emergency</h4>
-                <p>Camera monitors for a raised hand in background. Hold hand up for ~2 seconds → 5-second cancel countdown → Emergency Telegram alert sent with video clip. Hands-free emergency call.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-card reveal tab-card-wide" data-delay="0.5">
-            <div class="tab-screen">
-              <img src="img/caresaathi_settings.jpg" alt="CareSaathi Settings" class="tab-img">
-            </div>
-            <div class="tab-label">
-              <span class="tab-icon">⚙️</span>
-              <div>
-                <h4>Settings</h4>
-                <p>Groq API key + Telegram bot token stored locally. Caretaker configures once — patient never touches settings.</p>
-              </div>
-            </div>
-          </div>
-
+        <div class="feat-card">
+          <div class="feat-icon-wrap">⚙️</div>
+          <h3>Zero-Touch Settings</h3>
+          <p>API keys and bot configurations are managed on the caretaker end. Patient gets a clean, non-confusing UI.</p>
         </div>
       </div>
     </div>
@@ -288,136 +315,108 @@
   <!-- SECTION 4: MEDSCENE AI -->
   <section class="section section-alt" id="medscene">
     <div class="container">
-      <div class="section-label">04 — AI Report & Prescription</div>
-      <h2 class="section-title">MedScene AI</h2>
-      <p class="section-sub">Upload a prescription or blood test report — AI reads it and tells you what to take, when, what to avoid eating, and what the numbers mean. No medical knowledge needed.</p>
+      <div class="section-tag">04 — AI Vision & Intelligence</div>
+      <h2 class="section-heading">MedScene AI Vision Engine</h2>
+      <p class="section-desc">Eliminates manual entry errors. Caretakers upload paper bill photos or lab reports — Groq Vision AI extracts dosage timelines and identifies health risks instantly.</p>
 
-      <div class="medscene-layout">
-        <div class="medscene-screens reveal">
-          <div class="ms-screen ms-main">
-            <img src="img/medscene_prescription.jpg" alt="MedScene Prescription" class="ms-img">
-            <div class="ms-caption">📋 Prescription & Smart Bill — with generic alternatives + daily reminder timeline</div>
-          </div>
-          <div class="ms-side">
-            <div class="ms-screen reveal" data-delay="0.1">
-              <img src="img/medscene_report.jpg" alt="MedScene Report" class="ms-img">
-              <div class="ms-caption">🩺 Haematology Report — health score, red flags, diet plan</div>
-            </div>
-            <div class="ms-screen reveal" data-delay="0.2">
-              <img src="img/medscene_locker.jpg" alt="MedScene Locker" class="ms-img">
-              <div class="ms-caption">💾 Health Locker — all reports in one place, next pill reminder</div>
-            </div>
-          </div>
+      <div class="ai-flow-container">
+        <div class="ai-step-card">
+          <div class="ai-step-badge">Phase 1</div>
+          <h3>Prescription &amp; Bill OCR</h3>
+          <p>Upload any pharmacy bill or handwritten prescription. AI extracts medicine names, frequency, timings, and recommends generic cost-saving substitutes.</p>
+          <div class="ai-chip">Powered by Groq Llama Vision</div>
         </div>
-        <div class="medscene-points reveal">
-          <div class="ms-point">
-            <span class="ms-arrow">→</span>
-            <div>
-              <h4>Upload prescription photo</h4>
-              <p>AI extracts medicine names, dosage, and timing. Shows generic cheaper alternatives.</p>
-            </div>
-          </div>
-          <div class="ms-point">
-            <span class="ms-arrow">→</span>
-            <div>
-              <h4>Upload blood test report</h4>
-              <p>Shows which values are out of range, health score, what to eat / avoid, and a symptom checker chatbot.</p>
-            </div>
-          </div>
-          <div class="ms-point">
-            <span class="ms-arrow">→</span>
-            <div>
-              <h4>Digital Health Locker</h4>
-              <p>All uploaded prescriptions and reports saved in one dashboard with next-pill reminder at the top.</p>
-            </div>
-          </div>
+
+        <div class="ai-step-card">
+          <div class="ai-step-badge">Phase 2</div>
+          <h3>Haematology Blood Analyzer</h3>
+          <p>Reads complex CBC/blood test PDFs. Highlights abnormal red flag markers, calculates overall health score, and suggests dietary adjustments.</p>
+          <div class="ai-chip">Red Flag Alert Detection</div>
+        </div>
+
+        <div class="ai-step-card">
+          <div class="ai-step-badge">Phase 3</div>
+          <h3>Digital Health Locker</h3>
+          <p>Saves all analyzed medical records securely in one timeline with countdown timers for upcoming doses.</p>
+          <div class="ai-chip">Centralized Health Vault</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: ALERTS -->
+  <!-- SECTION 5: EMERGENCY ALERT PIPELINE -->
   <section class="section" id="alerts">
     <div class="container">
-      <div class="section-label">05 — Emergency Alerts</div>
-      <h2 class="section-title">What Happens in an Emergency</h2>
-      <p class="section-sub">Any alert — from panic button, gesture SOS, missed dose, or companion chat — goes straight to the caretaker's Telegram. They can also request a live photo or video from the patient's room.</p>
+      <div class="section-tag">05 — Real-Time Shield</div>
+      <h2 class="section-heading">Emergency Alert &amp; Verification Pipeline</h2>
+      <p class="section-desc">When help is needed, alerts bypass ordinary notifications and reach the caretaker immediately on Telegram with visual verification capability.</p>
 
-      <div class="alerts-layout">
-
-        <div class="alert-block reveal">
-          <div class="alert-screen-wrap">
-            <div class="phone-chrome">
-              <div class="phone-notch"></div>
-            </div>
-            <img src="img/telegram_alerts.png" alt="Telegram Alert Messages" class="alert-img">
+      <div class="pipeline-wrapper">
+        <div class="pipe-column">
+          <h3 class="pipe-col-title">1. Trigger Sources</h3>
+          
+          <div class="pipe-card border-red">
+            <strong>🚨 ESP32 Hardware Button</strong>
+            <p>Immediate physical emergency press</p>
           </div>
-          <div class="alert-explain">
-            <h3>4 Types of Alerts</h3>
-            <div class="alert-type">
-              <span class="alert-dot red"></span>
-              <div>
-                <strong>🚨 EMERGENCY</strong>
-                <p>"EMERGENCY — PATIENT IN EXTREME DANGER. Ambulance needed immediately."</p>
-              </div>
+
+          <div class="pipe-card border-orange">
+            <strong>✋ MediaPipe Gesture</strong>
+            <p>Raised hand detected by webcam</p>
+          </div>
+
+          <div class="pipe-card border-yellow">
+            <strong>⚠️ Dispense Failure</strong>
+            <p>Pill not detected by IR sensor in 10s</p>
+          </div>
+
+          <div class="pipe-card border-blue">
+            <strong>💬 Companion Message</strong>
+            <p>Patient sends note via CareSaathi</p>
+          </div>
+        </div>
+
+        <div class="pipe-arrow">➔</div>
+
+        <div class="pipe-column">
+          <h3 class="pipe-col-title">2. Telegram Gateway</h3>
+          
+          <div class="telegram-mock-box">
+            <div class="tg-msg tg-danger">
+              <strong>🚨 EMERGENCY - PATIENT IN EXTREME DANGER</strong>
+              <p>Ambulance needed immediately. Raised hand detected at 11:14 PM.</p>
             </div>
-            <div class="alert-type">
-              <span class="alert-dot yellow"></span>
-              <div>
-                <strong>🙋 Help Needed</strong>
-                <p>"Patient is not in danger but would like some assistance when you get a chance."</p>
-              </div>
-            </div>
-            <div class="alert-type">
-              <span class="alert-dot orange"></span>
-              <div>
-                <strong>💊 Dispense Error</strong>
-                <p>"Something went wrong while dispensing. Please come check on the patient and device."</p>
-              </div>
-            </div>
-            <div class="alert-type">
-              <span class="alert-dot green"></span>
-              <div>
-                <strong>✅ I'm Okay</strong>
-                <p>"Patient pressed the check-in button — no help needed right now."</p>
-              </div>
+
+            <div class="tg-msg tg-warning">
+              <strong>💊 Medicine Dispensing Error</strong>
+              <p>Ch 3 pill failed to fall. Please check device.</p>
             </div>
           </div>
         </div>
 
-        <div class="verify-block reveal" data-delay="0.2">
-          <div class="verify-header">
-            <h3>🎥 Human Verification — "Is the patient really okay?"</h3>
-            <p>Caretaker simply sends a message to the Telegram bot. The PC at home responds instantly.</p>
-          </div>
-          <div class="telegram-flow">
-            <div class="tg-screen-wrap">
-              <img src="img/telegram_verify.jpg" alt="Telegram Webcam Verification" class="tg-img">
+        <div class="pipe-arrow">➔</div>
+
+        <div class="pipe-column">
+          <h3 class="pipe-col-title">3. Live Room Verification</h3>
+          
+          <div class="verify-card">
+            <div class="verify-step">
+              <span class="v-num">1</span>
+              <p>Caretaker replies <code>hi</code> to Telegram bot</p>
             </div>
-            <div class="flow-steps">
-              <div class="flow-step">
-                <div class="step-num">1</div>
-                <p>Caretaker sends <code>hi</code> to the Telegram bot from anywhere</p>
-              </div>
-              <div class="flow-arrow">↓</div>
-              <div class="flow-step">
-                <div class="step-num">2</div>
-                <p>PC at home captures a <strong>live photo</strong> from the webcam (~2 seconds)</p>
-              </div>
-              <div class="flow-arrow">↓</div>
-              <div class="flow-step">
-                <div class="step-num">3</div>
-                <p>PC records a <strong>10-second video</strong> — sent back to Telegram</p>
-              </div>
-              <div class="flow-arrow">↓</div>
-              <div class="flow-step highlighted">
-                <div class="step-num">4</div>
-                <p>Caretaker sees the patient's room in real-time. No on-site visit needed.</p>
-              </div>
+            <div class="verify-step">
+              <span class="v-num">2</span>
+              <p>Home PC captures <strong>Live Photo</strong> from webcam</p>
+            </div>
+            <div class="verify-step">
+              <span class="v-num">3</span>
+              <p>PC records &amp; sends <strong>10s Video Clip</strong> to Telegram</p>
+            </div>
+            <div class="verify-result">
+              ✅ Caretaker visually verifies patient safety remotely without traveling!
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -425,15 +424,13 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-inner">
+      <div class="footer-content">
         <div class="footer-brand">
           <div class="brand-dot"></div>
-          <span class="footer-name">MedDispense IoT</span>
+          <span>MedDispense IoT</span>
         </div>
-        <div class="footer-tag">
-          IoT Enabled Patient Monitoring &amp; Emergency Alert System
-        </div>
-        <div class="footer-built">Built for Healthcare Hackathon · Prototype Evaluation</div>
+        <p>IoT Enabled Patient Monitoring &amp; Emergency Alert System</p>
+        <div class="footer-meta">Healthcare Hackathon Prototype Evaluation · 2026</div>
       </div>
     </div>
   </footer>
