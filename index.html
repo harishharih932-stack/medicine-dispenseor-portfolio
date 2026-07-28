@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedDispense — IoT Patient Monitoring & Emergency Alert System</title>
+  <title>CareSathi — Grand Finale Jury Presentation Deck</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,508 +12,445 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR / SLIDE NAV -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <div class="brand">
         <div class="brand-dot"></div>
-        <span>MedDispense <span class="brand-badge">IoT</span></span>
+        <span>CareSathi <span class="brand-badge">GRAND FINALE DECK</span></span>
       </div>
-      <div class="nav-links">
-        <a href="#hardware">Hardware</a>
-        <a href="#caretaker">Caretaker &amp; Pharmacy</a>
-        <a href="#caresaathi">CareSaathi</a>
-        <a href="#medscene">MedScene AI</a>
-        <a href="#alerts">Telegram Camera &amp; Alerts</a>
+      <div class="slide-nav-controls">
+        <span class="slide-counter" id="slideCounter">Slide 1 / 11</span>
+        <button class="slide-btn" id="prevBtn">← Prev</button>
+        <button class="slide-btn primary" id="nextBtn">Next →</button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-content">
-      <div class="problem-pill">
-        <span class="pill-dot"></span>
-        Hackathon Problem Statement Evaluation
-      </div>
-      
-      <h1 class="hero-title">
-        <span class="text-gradient-primary">IoT Enabled</span> Patient<br>
-        Monitoring &amp; Emergency<br>
-        <span class="text-gradient-secondary">Alert System</span>
-      </h1>
+  <!-- SLIDE DECK CONTAINER -->
+  <div class="deck-container">
 
-      <p class="hero-sub">
-        A low-cost, high-reliability automated pill dispenser combined with real-time caretaker alerts, automatic pharmacy home-delivery dispatch, AI prescription reading, and instant webcam room verification.
-      </p>
-
-      <div class="stats-bar">
-        <div class="stat-card">
-          <div class="stat-val">₹2,000</div>
-          <div class="stat-lbl">Hardware Cost</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat-card">
-          <div class="stat-val">~20ms</div>
-          <div class="stat-lbl">Sensor Reaction</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat-card">
-          <div class="stat-val">Auto Delivery</div>
-          <div class="stat-lbl">Pharmacy Refill Alert</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat-card">
-          <div class="stat-val">24 / 7</div>
-          <div class="stat-lbl">Active Shield</div>
-        </div>
+    <!-- SLIDE 1: COVER -->
+    <section class="slide-card active" id="slide-1">
+      <div class="slide-header">
+        <span class="slide-pill">Grand Finale Jury Round · Medical &amp; Investor Pitch</span>
+        <h1 class="slide-title">CareSathi <span class="text-gradient">Medical IoT Platform</span></h1>
+        <p class="slide-subtitle">Field-grade edge-AI dispenser, 3-layer emergency response, and dual-tier healthcare monetization engine.</p>
       </div>
 
-      <a href="#hardware" class="hero-cta">
-        <span>Explore Architecture</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- SECTION 1: HARDWARE DISPENSER -->
-  <section class="section" id="hardware">
-    <div class="container">
-      <div class="section-tag">01 — Physical Prototype</div>
-      <h2 class="section-heading">Smart 10-Channel Round Dispenser</h2>
-      <p class="section-desc">Designed for ultra-low cost, high mechanical accuracy, and zero missed doses. Dual-battery power prevents micro-controller reset during servo movement.</p>
-
-      <div class="hw-showcase">
-        <div class="hw-main-card">
-          <div class="hw-img-wrap">
-            <img src="img/red_hardware_dispenser.jpg" alt="MedDispense Physical Hardware Prototype" class="hw-hero-img">
-            <div class="hw-overlay-badge">
-              <span class="live-dot"></span> Physical Working Model
-            </div>
-          </div>
-          <div class="hw-caption">
-            <strong>Physical Prototype</strong> — 10-slot rotating base disc, high-torque micro servo arm, IR fall sensor, and custom Arduino controller unit.
+      <div class="cover-hero-grid">
+        <div class="cover-image-box">
+          <img src="img/red_hardware_dispenser.jpg" alt="CareSathi Industrial Medical Dispenser" class="cover-img">
+          <div class="cover-badge">
+            <span class="live-dot"></span> NVIDIA Jetson Orin Nano Onboard
           </div>
         </div>
 
-        <div class="hw-grid">
-          <div class="hw-item">
-            <div class="hw-icon-box bg-red">01</div>
-            <div class="hw-text">
-              <h4>10-Compartment Base Disc</h4>
-              <p>Fixed outer ring holding individual pill doses securely separated. Non-jamming slot design.</p>
-            </div>
-          </div>
-
-          <div class="hw-item">
-            <div class="hw-icon-box bg-orange">02</div>
-            <div class="hw-text">
-              <h4>Precision Servo Arm</h4>
-              <p>Rotates to the scheduled channel and nudges the pill cleanly into the discharge chute.</p>
-            </div>
-          </div>
-
-          <div class="hw-item">
-            <div class="hw-icon-box bg-blue">03</div>
-            <div class="hw-text">
-              <h4>IR Drop Sensor Beam</h4>
-              <p>Positioned at the chute outlet. Detects pill passage in ~20ms to confirm successful delivery.</p>
-            </div>
-          </div>
-
-          <div class="hw-item">
-            <div class="hw-icon-box bg-green">04</div>
-            <div class="hw-text">
-              <h4>Dual Battery Power Shield</h4>
-              <p>Independent 18650 power for servos prevents electrical noise and voltage dips on logic board.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ESP32 REMOTE SUB-SECTION -->
-      <div class="esp-card">
-        <div class="esp-header">
-          <div>
-            <span class="mini-tag">Wireless Patient Remote</span>
-            <h3>ESP32 Handheld Panic Remote</h3>
-            <p>Mobile 4-button tactile remote for the patient to call for help anytime from bed or chair.</p>
-          </div>
-        </div>
-
-        <div class="remote-buttons-grid">
-          <div class="remote-btn-card btn-sos">
-            <div class="btn-head">
-              <span class="btn-icon">🚨</span>
-              <h4>SOS Emergency</h4>
-            </div>
-            <p>Triggers immediate high-priority alarm to caretaker's mobile Telegram.</p>
-          </div>
-
-          <div class="remote-btn-card btn-okay">
-            <div class="btn-head">
-              <span class="btn-icon">✅</span>
-              <h4>I'm Okay Check-in</h4>
-            </div>
-            <p>Cancels false alarms or confirms patient has taken their medicine safely.</p>
-          </div>
-
-          <div class="remote-btn-card btn-help">
-            <div class="btn-head">
-              <span class="btn-icon">🙋</span>
-              <h4>Assistance Needed</h4>
-            </div>
-            <p>Non-urgent help request for water, food, or assistance moving around.</p>
-          </div>
-
-          <div class="remote-btn-card btn-error">
-            <div class="btn-head">
-              <span class="btn-icon">💊</span>
-              <h4>Dispense Error</h4>
-            </div>
-            <p>Signals caretaker if a pill was missed or stuck in the compartment.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 2: CARETAKER APP & AUTOMATED PHARMACY DELIVERY -->
-  <section class="section section-alt" id="caretaker">
-    <div class="container">
-      <div class="section-tag">02 — Caretaker Control &amp; Automated Refill</div>
-      <h2 class="section-heading">CareDispense Dashboard &amp; Auto-Pharmacy Delivery</h2>
-      <p class="section-desc">Caretaker configures timing schedules and stock counts. When a compartment runs low, the system automatically notifies the caretaker AND dispatches a refill order directly to the medical store for home delivery.</p>
-
-      <div class="app-card">
-        <div class="mock-window">
-          <div class="mock-bar">
-            <div class="mock-dots"><span></span><span></span><span></span></div>
-            <div class="mock-title">CareDispense — Hardware, Schedule &amp; Pharmacy Auto-Order</div>
-            <div class="mock-status"><span class="status-dot"></span> COM4 Active</div>
-          </div>
-          
-          <div class="mock-body">
-            <div class="channel-row">
-              <div class="ch-badge">Ch 1</div>
-              <div class="ch-details">
-                <strong>Paracetamol 500mg</strong>
-                <span class="stock-pill">Stock: 9 pills remaining</span>
-              </div>
-              <div class="ch-schedule">
-                <span class="slot-tag active">Morning 08:00</span>
-                <span class="slot-tag">Afternoon 14:00</span>
-                <span class="slot-tag active">Evening 20:00</span>
-              </div>
-              <button class="mock-btn-action">Dispense Now</button>
-            </div>
-
-            <div class="channel-row">
-              <div class="ch-badge">Ch 2</div>
-              <div class="ch-details">
-                <strong>Amoxicillin 250mg</strong>
-                <span class="stock-pill">Stock: 6 pills remaining</span>
-              </div>
-              <div class="ch-schedule">
-                <span class="slot-tag active">Morning 08:00</span>
-                <span class="slot-tag active">Afternoon 13:00</span>
-                <span class="slot-tag">Evening --:--</span>
-              </div>
-              <button class="mock-btn-action">Dispense Now</button>
-            </div>
-
-            <!-- EMPTY STOCK AUTOMATED REFILL ALERT ROW -->
-            <div class="channel-row alert-refill-row">
-              <div class="ch-badge bg-danger">Ch 3</div>
-              <div class="ch-details">
-                <strong>Atorvastatin 10mg</strong>
-                <span class="stock-pill empty">⚠️ STOCK EMPTY (0 Pills) — Refill Dispatched</span>
-              </div>
-              <div class="refill-action-box">
-                <span class="refill-badge">📲 Caretaker Alert Sent</span>
-                <span class="refill-badge bg-medical">🚚 Medical Store Order Placed</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PHARMACY AUTO-DELIVERY HIGHLIGHT BOX -->
-        <div class="pharmacy-feature-card">
-          <div class="pharmacy-header">
-            <span class="pharm-icon">🏪</span>
+        <div class="cover-highlights">
+          <div class="hl-card">
+            <span class="hl-icon">🩺</span>
             <div>
-              <h3>Automated Medical Store Home-Delivery Dispatch</h3>
-              <p>Zero manual hassle when medicine runs out. Dual-alert system keeps patient supplied 24/7.</p>
-            </div>
-          </div>
-          <div class="pharmacy-steps">
-            <div class="p-step">
-              <div class="p-num">1</div>
-              <div>
-                <strong>Low Stock Trigger</strong>
-                <p>When any channel reaches 0 or low stock count (below threshold), sensor updates database.</p>
-              </div>
-            </div>
-            <div class="p-arrow">➔</div>
-            <div class="p-step">
-              <div class="p-num">2</div>
-              <div>
-                <strong>Caretaker Telegram Alert</strong>
-                <p>Caretaker receives instant message: <em>"Channel 3 (Atorvastatin) stock empty. Please review refill."</em></p>
-              </div>
-            </div>
-            <div class="p-arrow">➔</div>
-            <div class="p-step highlighted">
-              <div class="p-num">3</div>
-              <div>
-                <strong>Direct Medical Store Order</strong>
-                <p>System automatically sends pre-formatted order message to local Pharmacy API/WhatsApp for <strong>doorstep home delivery</strong>!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="app-pillars">
-          <div class="pillar">
-            <div class="pillar-num">01</div>
-            <h4>Per-Channel Timing</h4>
-            <p>Assign exact morning, afternoon, and evening dose hours per compartment.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">02</div>
-            <h4>IR Fall Verification</h4>
-            <p>IR beam verifies pill fell in 20ms before decrementing stock count.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">03</div>
-            <h4>Caretaker Notice</h4>
-            <p>Instant mobile Telegram notification on empty stock or missed doses.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">04</div>
-            <h4>Pharmacy Auto-Refill</h4>
-            <p>Direct message to local medical store for fast doorstep home delivery.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: CARESAATHI PATIENT SUITE -->
-  <section class="section" id="caresaathi">
-    <div class="container">
-      <div class="section-tag">03 — Patient Experience</div>
-      <h2 class="section-heading">CareSaathi Mobile &amp; Web Companion</h2>
-      <p class="section-desc">Designed specifically for elderly patients with large touch buttons, warm AI voice companion, devotional music, and hands-free safety triggers.</p>
-
-      <div class="features-grid">
-        <div class="feat-card">
-          <div class="feat-icon-wrap">🌐</div>
-          <h3>Multi-Lingual Audio</h3>
-          <p>Supports Hindi, Kannada, Tamil, Telugu, Punjabi, Marathi &amp; English. Curated music for emotional wellness.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-wrap">💬</div>
-          <h3>Meera AI Companion</h3>
-          <p>Warm AI companion powered by Groq LLM. Patient can talk or send direct notes to caretaker's Telegram.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-wrap">🧘</div>
-          <h3>Scheduled Meditation</h3>
-          <p>Caretaker schedules daily morning prayers/chants (e.g. Ram Chant at 10:30 AM) that auto-play to calm the patient.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-wrap">🚌</div>
-          <h3>Traveler Mode</h3>
-          <p>Queue 10–20 songs for car journeys with an auto-stop sleep timer so battery isn't drained.</p>
-        </div>
-
-        <div class="feat-card feat-highlight">
-          <div class="feat-icon-wrap">📷</div>
-          <h3>MediaPipe Gesture SOS</h3>
-          <p>Webcam runs MediaPipe hand tracking. Raised hand held for ~2s initiates emergency alert with a 5s cancel countdown.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-wrap">⚙️</div>
-          <h3>Zero-Touch Settings</h3>
-          <p>API keys and bot configurations are saved on caretaker side. Patient gets a clean, simple UI.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 4: MEDSCENE AI -->
-  <section class="section section-alt" id="medscene">
-    <div class="container">
-      <div class="section-tag">04 — AI Vision &amp; Intelligence</div>
-      <h2 class="section-heading">MedScene AI Vision Engine</h2>
-      <p class="section-desc">Eliminates manual entry errors. Caretakers upload paper bill photos or lab reports — Groq Vision AI extracts dosage timelines and identifies health risks instantly.</p>
-
-      <div class="ai-flow-container">
-        <div class="ai-step-card">
-          <div class="ai-step-badge">Phase 1</div>
-          <h3>Prescription &amp; Bill OCR</h3>
-          <p>Upload any pharmacy bill or handwritten prescription. AI extracts medicine names, frequency, timings, and recommends generic cost-saving substitutes.</p>
-          <div class="ai-chip">Powered by Groq Llama Vision</div>
-        </div>
-
-        <div class="ai-step-card">
-          <div class="ai-step-badge">Phase 2</div>
-          <h3>Haematology Blood Analyzer</h3>
-          <p>Reads complex CBC/blood test PDFs. Highlights abnormal red flag markers, calculates overall health score, and suggests dietary adjustments.</p>
-          <div class="ai-chip">Red Flag Alert Detection</div>
-        </div>
-
-        <div class="ai-step-card">
-          <div class="ai-step-badge">Phase 3</div>
-          <h3>Digital Health Locker</h3>
-          <p>Saves all analyzed medical records securely in one timeline with countdown timers for upcoming doses.</p>
-          <div class="ai-chip">Centralized Health Vault</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: EMERGENCY ALERT & TELEGRAM WEBCAM VERIFICATION -->
-  <section class="section" id="alerts">
-    <div class="container">
-      <div class="section-tag">05 — Real-Time Shield &amp; Remote Camera</div>
-      <h2 class="section-heading">Telegram Bot &amp; Instant Room Camera Verification</h2>
-      <p class="section-desc">When an alert sounds, or whenever the caretaker wants to check on the patient, they simply send a command like <code>hi</code> or <code>/hello</code> to the Telegram Bot to get live photos and video streaming from the patient's room.</p>
-
-      <!-- TELEGRAM HI/HELLO COMMAND FEATURE BOX -->
-      <div class="tg-cmd-feature-card">
-        <div class="tg-cmd-header">
-          <span class="tg-cmd-badge">📸 High-Priority Command Feature</span>
-          <h3>Live Webcam Photo &amp; Video Stream via <code>hi</code> / <code>/hello</code> Command</h3>
-          <p>Caretaker can visually check the patient's condition anytime from anywhere in the world.</p>
-        </div>
-
-        <div class="tg-cmd-grid">
-          <div class="cmd-box">
-            <div class="cmd-input">
-              <span class="cmd-user">Caretaker sends:</span>
-              <code>hi</code> or <code>/hello</code> or <code>hello</code>
-            </div>
-            <div class="cmd-action">
-              <span class="cmd-arrow">➔</span>
-              <div>
-                <strong>Webcam Triggered</strong>
-                <p>System activates patient's room laptop/PC camera instantly.</p>
-              </div>
+              <h4>Doctor-Validated Design</h4>
+              <p>Autoclave-safe PEEK/PPSU medical enclosure, zero cross-contamination risk, liability reduction.</p>
             </div>
           </div>
 
-          <div class="cmd-output-card">
-            <div class="out-item">
-              <span class="out-icon">📸</span>
-              <div>
-                <strong>Live Still Photo Response</strong>
-                <p>Captures crisp HD picture of room and sends to Telegram in ~2 seconds.</p>
-              </div>
+          <div class="hl-card">
+            <span class="hl-icon">💼</span>
+            <div>
+              <h4>Investor Economics</h4>
+              <p>₹20k–₹40k commercial unit price, dual customer tiers (Hardware + Software-Only), recurring SaaS revenue.</p>
             </div>
+          </div>
 
-            <div class="out-item">
-              <span class="out-icon">🎥</span>
-              <div>
-                <strong>10-Second Video Clip</strong>
-                <p>Auto-records a 10s video with sound and uploads to Telegram so caretaker sees live movement.</p>
-              </div>
+          <div class="hl-card">
+            <span class="hl-icon">⚡</span>
+            <div>
+              <h4>Edge-AI Autonomy</h4>
+              <p>Local Jetson Orin Nano compute — zero dependence on external PCs. Built-in 7" touch display &amp; power backup.</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="pipeline-wrapper">
-        <div class="pipe-column">
-          <h3 class="pipe-col-title">1. Trigger Sources</h3>
-          
-          <div class="pipe-card border-red">
-            <strong>🚨 ESP32 Hardware Button</strong>
-            <p>Immediate physical emergency press</p>
-          </div>
+    <!-- SLIDE 2: ARCHITECTURE SUMMARY -->
+    <section class="slide-card" id="slide-2">
+      <div class="slide-header">
+        <span class="slide-tag">01 / System Overview</span>
+        <h2 class="slide-heading">End-to-End System Architecture</h2>
+        <p class="slide-subtitle">Condensed architecture bridging edge-AI hardware, patient mobile companion, AI report vision, and caretaker telegram gateway.</p>
+      </div>
 
-          <div class="pipe-card border-orange">
-            <strong>✋ MediaPipe Gesture</strong>
-            <p>Raised hand held for 2 seconds</p>
-          </div>
-
-          <div class="pipe-card border-yellow">
-            <strong>⚠️ Stock Empty Alert</strong>
-            <p>Compartment reaches 0 pills</p>
-          </div>
-
-          <div class="pipe-card border-blue">
-            <strong>💬 Telegram Command</strong>
-            <p>Send <code>hi</code> / <code>/hello</code> for camera</p>
-          </div>
+      <div class="arch-summary-grid">
+        <div class="arch-box">
+          <div class="arch-num">01</div>
+          <h3>Smart Dispenser</h3>
+          <p>10-compartment base disc, precision digital metal-gear servos, sealed IP-rated IR fall beam, built-in battery backup.</p>
         </div>
 
-        <div class="pipe-arrow">➔</div>
-
-        <div class="pipe-column">
-          <h3 class="pipe-col-title">2. Telegram Gateway</h3>
-          
-          <div class="telegram-mock-box">
-            <div class="tg-msg tg-danger">
-              <strong>🚨 EMERGENCY - PATIENT IN EXTREME DANGER</strong>
-              <p>Ambulance needed immediately. Raised hand detected at 11:14 PM.</p>
-            </div>
-
-            <div class="tg-msg tg-warning">
-              <strong>📦 Refill Needed + Medical Store Notified</strong>
-              <p>Channel 3 stock 0. Home delivery order sent to local pharmacy.</p>
-            </div>
-
-            <div class="tg-msg tg-info">
-              <strong>📸 PC 1 — Capturing Photo &amp; Recording 10s Video...</strong>
-              <p>Sent room picture + 10s video clip to Telegram chat.</p>
-            </div>
-          </div>
+        <div class="arch-box">
+          <div class="arch-num">02</div>
+          <h3>ESP32 Remote &amp; Camera</h3>
+          <p>Wireless 4-button tactile panic remote + MediaPipe gesture SOS camera tracking for hands-free emergency alerts.</p>
         </div>
 
-        <div class="pipe-arrow">➔</div>
+        <div class="arch-box">
+          <div class="arch-num">03</div>
+          <h3>CareSaathi App &amp; AI</h3>
+          <p>Multi-lingual audio companion, Meera conversational AI, MedScene prescription &amp; blood report vision OCR.</p>
+        </div>
 
-        <div class="pipe-column">
-          <h3 class="pipe-col-title">3. Caretaker Verification</h3>
-          
-          <div class="verify-card">
-            <div class="verify-step">
-              <span class="v-num">1</span>
-              <p>Caretaker sends <code>/hello</code> or <code>hi</code> to Telegram</p>
-            </div>
-            <div class="verify-step">
-              <span class="v-num">2</span>
-              <p>Webcam snaps room photo + 10s video</p>
-            </div>
-            <div class="verify-step">
-              <span class="v-num">3</span>
-              <p>Auto order sent to medical store for refill</p>
-            </div>
-            <div class="verify-result">
-              ✅ Caretaker verifies room visually + stock refilled automatically!
-            </div>
+        <div class="arch-box">
+          <div class="arch-num">04</div>
+          <h3>Refill &amp; Telegram Gateway</h3>
+          <p>Automatic pharmacy home-delivery dispatch on low stock + <code>hi</code> / <code>/hello</code> instant room photo &amp; video reply.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: HARDWARE UPGRADE & REAL WORKING SPEC -->
+    <section class="slide-card" id="slide-3">
+      <div class="slide-header">
+        <span class="slide-tag">02 / Commercial Product Hardware Specification</span>
+        <h2 class="slide-heading">Field-Grade Medical Hardware — Built for Continuous Operation</h2>
+        <p class="slide-subtitle">Upgraded from hackathon prototype to a field-deployable, autonomous medical device engineered for months of continuous hospital and home use.</p>
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-icon bg-blue">🧠</div>
+          <h3>NVIDIA Jetson Orin Nano Onboard</h3>
+          <p>Powerful onboard edge-AI computer. Runs local MediaPipe camera SOS tracking, sensor fusion, and timing offline — completely independent of external PCs.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon bg-green">📱</div>
+          <h3>Built-in 7-Inch Touch Display</h3>
+          <p>Integrated high-brightness touchscreen on the dispenser. Displays dose schedule, stock counts, and system health directly to the patient or bedside nurse.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon bg-orange">⚙️</div>
+          <h3>Metal-Gear Precision Servos &amp; IP Sensors</h3>
+          <p>High-torque, metal-gear digital servos rated for long duty cycles + sealed industrial IR fall sensors resistant to dust and moisture.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon bg-red">🧪</div>
+          <h3>Autoclave-Safe Medical Enclosure</h3>
+          <p>PEEK/PPSU-class medical polymer enclosure — 100% sterilizable, heat-resistant, and chemical-disinfectable for hospital reuse between patients.</p>
+        </div>
+
+        <div class="spec-card spec-full">
+          <div class="spec-icon bg-yellow">🔋</div>
+          <h3>Integrated Uninterrupted Power Backup</h3>
+          <p>Dual-bank LiFePO4 battery system guarantees 24+ hours of uninterrupted operation through power cuts and grid failures.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: SUSTAINABILITY -->
+    <section class="slide-card" id="slide-4">
+      <div class="slide-header">
+        <span class="slide-tag">03 / Reliability &amp; Field Duty Cycle</span>
+        <h2 class="slide-heading">Why This System Is Sustainable in Real-World Conditions</h2>
+        <p class="slide-subtitle">Engineered specifically to survive real hospital and home environments over months of continuous operation.</p>
+      </div>
+
+      <div class="sustain-grid">
+        <div class="sustain-card">
+          <div class="s-badge">01</div>
+          <h3>Long Duty-Cycle Metal Components</h3>
+          <p>Digital metal-gear servos rated for 500,000+ actuation cycles. Eliminates gear stripping, jitter, and mechanical wear seen in hobby servos.</p>
+        </div>
+
+        <div class="sustain-card">
+          <div class="s-badge">02</div>
+          <h3>Hospital-Grade Sterilizable Polymer</h3>
+          <p>PEEK/PPSU enclosure survives repeated chemical wipes, UV-C disinfection, and autoclave sterilization without degradation.</p>
+        </div>
+
+        <div class="sustain-card">
+          <div class="s-badge">03</div>
+          <h3>Autonomous Edge Compute</h3>
+          <p>Local Jetson Orin Nano processing means no reliance on a home laptop or PC that could crash, sleep, or be disconnected.</p>
+        </div>
+
+        <div class="sustain-card">
+          <div class="s-badge">04</div>
+          <h3>Battery Power Protection</h3>
+          <p>Isolated battery shield prevents voltage spikes from resetting logic boards, ensuring continuous dose tracking during power cuts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: COMMERCIAL COST STRUCTURE -->
+    <section class="slide-card" id="slide-5">
+      <div class="slide-header">
+        <span class="slide-tag">04 / Unit Economics &amp; Cost Structure</span>
+        <h2 class="slide-heading">Honest Commercial Hardware &amp; Op-Ex Cost</h2>
+        <p class="slide-subtitle">Realistic cost breakdown of a certified, field-ready medical unit versus a low-cost demo prototype.</p>
+      </div>
+
+      <div class="cost-comparison-container">
+        <div class="cost-card highlight-box">
+          <div class="cost-tag">Commercial Unit Cost</div>
+          <div class="cost-price">₹20,000 – ₹40,000+</div>
+          <div class="cost-subtitle">Per Certified Medical Dispenser Unit</div>
+          <ul class="cost-list">
+            <li><strong>NVIDIA Jetson Orin Nano Edge Board:</strong> ₹16,000 – ₹22,000</li>
+            <li><strong>7-Inch Touchscreen &amp; Control Board:</strong> ₹4,000 – ₹6,000</li>
+            <li><strong>Precision Metal Servos &amp; IP Sensors:</strong> ₹3,000 – ₹5,000</li>
+            <li><strong>Sterilizable PEEK/PPSU Medical Enclosure:</strong> Separate quote (Medical Moulding)</li>
+            <li><strong>LiFePO4 Power Backup &amp; ESP32 Remote:</strong> ₹2,500 – ₹4,000</li>
+          </ul>
+        </div>
+
+        <div class="cost-card op-card">
+          <div class="cost-tag">Ongoing Software Operating Cost (Op-Ex)</div>
+          <div class="cost-price">Recurring SaaS / API</div>
+          <div class="cost-subtitle">Managed Cloud &amp; Vision Engine Overhead</div>
+          <ul class="cost-list">
+            <li><strong>Custom Domain &amp; SSL Infrastructure:</strong> Annual hosting fee</li>
+            <li><strong>Groq Vision AI API (Prescription OCR):</strong> Usage-based tokens</li>
+            <li><strong>Telegram Gateway &amp; WebRTC Stream Server:</strong> Monthly cloud bandwidth</li>
+            <li><strong>Database Storage &amp; Health Locker Vault:</strong> Scalable cloud database</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: WHY DOCTORS TRUST THIS -->
+    <section class="slide-card" id="slide-6">
+      <div class="slide-header">
+        <span class="slide-tag">05 / Clinical Trust &amp; Medical Validation</span>
+        <h2 class="slide-heading">Why Doctors Trust CareSathi</h2>
+        <p class="slide-subtitle">Positions the doctor as supported and protected — reducing round burden and clinical liability.</p>
+      </div>
+
+      <div class="doctor-trust-grid">
+        <div class="trust-card">
+          <div class="t-icon">🧪</div>
+          <h3>100% Sterilization Proof</h3>
+          <p>Autoclave-safe, bacteria-free PEEK/PPSU enclosure tested for zero cross-contamination between hospital bed reassignments.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="t-icon">⏳</div>
+          <h3>Saves In-Person Round Time</h3>
+          <p>Automated dispenser log and live room camera feed allow doctors/nurses to verify patient status remotely, freeing up round hours.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="t-icon">⚖️</div>
+          <h3>Reduces Doctor Liability</h3>
+          <p>IR sensor fall confirmation logs exact dose delivery timestamp in a legal audit trail, protecting doctors against missed-dose lawsuits.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="t-icon">🚨</div>
+          <h3>3-Layer Emergency Escalation</h3>
+          <p>Hardware Button ➔ MediaPipe Gesture SOS ➔ Automated Pharmacy &amp; Ambulance dispatch — gets help on-site faster.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: WHY INVESTORS SHOULD BACK THIS -->
+    <section class="slide-card" id="slide-7">
+      <div class="slide-header">
+        <span class="slide-tag">06 / Investor Business Case</span>
+        <h2 class="slide-heading">Why Investors Should Back CareSathi</h2>
+        <p class="slide-subtitle">Clear monetization, scalable hospital economics, and recurring subscription revenue.</p>
+      </div>
+
+      <div class="investor-grid">
+        <div class="inv-card">
+          <div class="inv-badge">01</div>
+          <h3>Multi-Segment Monetization</h3>
+          <p>Revenue streams from individual home patients, hospital bed licensing, doctor subscriptions, and pharmacy referral margins.</p>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-badge">02</div>
+          <h3>Scalable Hospital Economics</h3>
+          <p>Fulfills demand for 50-bed and 100-bed hospital deployments with standardized supply fulfillment &amp; bed OEM integration.</p>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-badge">03</div>
+          <h3>High-Margin Recurring SaaS</h3>
+          <p>Software subscriptions (CareSaathi App + Health Locker + AI Vision) generate high-margin recurring monthly revenue.</p>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-badge">04</div>
+          <h3>Honest Unit Economics</h3>
+          <p>Grounded ₹20k–₹40k product BOM ensures realistic manufacturing margins and prevents vaporware failure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: TARGET CUSTOMER SEGMENTS -->
+    <section class="slide-card" id="slide-8">
+      <div class="slide-header">
+        <span class="slide-tag">07 / Market &amp; Distribution</span>
+        <h2 class="slide-heading">Target Customer Segments</h2>
+        <p class="slide-subtitle">Four distinct go-to-market channels spanning home care, private clinics, and hospital infrastructure.</p>
+      </div>
+
+      <div class="segments-grid">
+        <div class="seg-card">
+          <div class="seg-num">Segment 1</div>
+          <h3>Independent Home-Visit Doctors</h3>
+          <p>Doctors managing 100+ home patients monthly. Device deployed per patient; monthly monitoring fee collected per patient.</p>
+        </div>
+
+        <div class="seg-card">
+          <div class="seg-num">Segment 2</div>
+          <h3>Direct Family &amp; Home Patients</h3>
+          <p>Individual family members buying the device directly for elderly, diabetic, or cardiac relatives needing home care.</p>
+        </div>
+
+        <div class="seg-card">
+          <div class="seg-num">Segment 3</div>
+          <h3>Private Hospital Owners (e.g. 50-Bed)</h3>
+          <p>Bulk hardware deployment across wards with centralized nurse station monitoring and automated inventory fulfillment.</p>
+        </div>
+
+        <div class="seg-card">
+          <div class="seg-num">Segment 4</div>
+          <h3>Hospital Bed / Furniture OEMs</h3>
+          <p>Pre-integrated device bundled into hospital beds and over-bed tables sold directly to new hospital construction projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: BRAND AMBASSADOR & MARKETING STRATEGY -->
+    <section class="slide-card" id="slide-9">
+      <div class="slide-header">
+        <span class="slide-tag">08 / Brand &amp; Marketing Trust Strategy</span>
+        <h2 class="slide-heading">Dual Brand Ambassador Strategy</h2>
+        <p class="slide-subtitle">Building immediate emotional trust with family members and clinical credibility with healthcare professionals.</p>
+      </div>
+
+      <div class="ambassador-grid">
+        <div class="amb-card">
+          <div class="amb-type">Public Brand Ambassador</div>
+          <h3>Veteran, Long-Trusted Film Personality</h3>
+          <p><strong>Role:</strong> Household Public Face for Family Trust</p>
+          <ul class="amb-list">
+            <li>Establishes immediate emotional connection with senior citizens and family caregivers.</li>
+            <li>Drives mass awareness across Tier 1 &amp; Tier 2 cities via TV and digital campaigns.</li>
+            <li>Normalizes medical IoT adoption for elderly home care.</li>
+          </ul>
+        </div>
+
+        <div class="amb-card amb-medical">
+          <div class="amb-type blue-type">Medical Brand Ambassador</div>
+          <h3>Senior, Highly-Experienced Chief Medical Doctor</h3>
+          <p><strong>Role:</strong> Clinical Validation &amp; Hospital Endorsement</p>
+          <ul class="amb-list">
+            <li>Signals product is clinically verified, autoclave-sterilized, and safe for hospital use.</li>
+            <li>Drives B2B hospital owner adoption and independent doctor network recommendations.</li>
+            <li>Instills strong investor confidence in clinical compliance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: CARESAATHI TWO CUSTOMER TIERS -->
+    <section class="slide-card" id="slide-10">
+      <div class="slide-header">
+        <span class="slide-tag">09 / Monetization &amp; Customer Tiers</span>
+        <h2 class="slide-heading">CareSaathi Access &amp; Revenue Model: Two Customer Tiers</h2>
+        <p class="slide-subtitle">Capturing both high-ARPU critical patients and high-volume normal wellness users.</p>
+      </div>
+
+      <div class="tiers-grid">
+        <div class="tier-card tier-hardware">
+          <div class="tier-badge">Tier 1 — High ARPU</div>
+          <h3>Hardware + Software Bundle</h3>
+          <div class="tier-target">For CRITICAL / Medicated Patients</div>
+          <p>Requires physical Jetson dispenser, panic remote, full CareDispense dashboard, and automatic pharmacy refill.</p>
+          <div class="tier-pricing">Hardware Sale + Monthly SaaS Subscription</div>
+        </div>
+
+        <div class="tier-card tier-software">
+          <div class="tier-badge green-badge">Tier 2 — High Volume</div>
+          <h3>Software-Only App Stream</h3>
+          <div class="tier-target">For NORMAL / Fit Patients (e.g. Fever Recovery)</div>
+          <p>No hardware purchase required. Patients use CareSaathi web app for music, AI companion Meera, and camera gesture SOS.</p>
+          <div class="tier-pricing">Near-Zero BOM Cost ➔ High-Volume SaaS Revenue</div>
+        </div>
+      </div>
+
+      <div class="freemium-funnel-card">
+        <h4>SaaS Adoption &amp; Conversion Funnel</h4>
+        <div class="funnel-steps">
+          <div class="f-step">
+            <span class="f-num">1</span>
+            <strong>1-Month Free Trial</strong>
+            <p>All users get full access free for 30 days.</p>
+          </div>
+          <div class="f-arrow">➔</div>
+          <div class="f-step">
+            <span class="f-num">2</span>
+            <strong>Freemium Music &amp; Companion</strong>
+            <p>General entertainment remains free to build mass user adoption.</p>
+          </div>
+          <div class="f-arrow">➔</div>
+          <div class="f-step highlighted">
+            <span class="f-num">3</span>
+            <strong>Paid Premium SaaS Upgrade</strong>
+            <p>Paid tier unlocks AI vision OCR, custom domain, and unlimited emergency camera streaming.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- SLIDE 11: GRAND FINALE SUMMARY -->
+    <section class="slide-card" id="slide-11">
+      <div class="slide-header">
+        <span class="slide-tag">10 / Grand Finale Summary</span>
+        <h2 class="slide-heading">CareSathi — Ready for Market Deployment</h2>
+        <p class="slide-subtitle">A field-proven, doctor-trusted, investor-backed medical IoT ecosystem.</p>
+      </div>
+
+      <div class="summary-box-grid">
+        <div class="sum-box">
+          <h4>Field-Grade Hardware</h4>
+          <p>NVIDIA Jetson Orin Nano, 7" touchscreen, metal-gear digital servos, autoclave-safe PEEK enclosure, power backup.</p>
+        </div>
+
+        <div class="sum-box">
+          <h4>Doctor &amp; Clinical Safety</h4>
+          <p>100% sterilizable, liability reduction with IR dose logs, 3-layer emergency response, time saved on rounds.</p>
+        </div>
+
+        <div class="sum-box">
+          <h4>Dual-Tier Revenue Model</h4>
+          <p>Hardware + SaaS for critical patients (Tier 1) + Software-only app for normal patients (Tier 2) + Freemium SaaS conversion.</p>
+        </div>
+
+        <div class="sum-box">
+          <h4>Strategic Go-To-Market</h4>
+          <p>Doctor network, direct home care, 50-bed hospital bulk supply, bed OEM bundling, and dual brand ambassador trust engine.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER / DECK NAV BAR -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
           <div class="brand-dot"></div>
-          <span>MedDispense IoT</span>
+          <span>CareSathi Medical IoT Platform</span>
         </div>
-        <p>IoT Enabled Patient Monitoring &amp; Emergency Alert System</p>
-        <div class="footer-meta">Healthcare Hackathon Prototype Evaluation · 2026</div>
+        <p>Grand Finale Jury Presentation Deck — Doctor &amp; Investor Round</p>
       </div>
     </div>
   </footer>
